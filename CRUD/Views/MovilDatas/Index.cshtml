@@ -1,0 +1,30 @@
+﻿@model IEnumerable<CRUD.Models.MovilData>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-sm-3">
+        <img src="~/Imagenes/logo.png" width="200" />
+        <div>
+            @Html.ActionLink("Inicio ", "Index")
+        </div>
+        <div>
+            @Html.ActionLink("Nuevo Movil ", "Create")
+        </div>
+        <div>
+            @Html.ActionLink("Lista Moviles", "List")
+        </div>
+    </div>
+
+    <div class="col-sm-9">
+        <h4>Bienvenidos </h4>
+        <h6>Imagen  </h6>
+    </div>
+
+</div>
+
+

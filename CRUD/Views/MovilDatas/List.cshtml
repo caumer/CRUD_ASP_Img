@@ -1,0 +1,93 @@
+﻿@model IEnumerable<CRUD.Models.MovilData>
+
+@{
+    ViewBag.Title = "List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-3">
+        <img src="~/Imagenes/logo.png" width="200" />
+        <div>
+            @Html.ActionLink("Inicio ", "Index")
+        </div>
+        <div>
+            @Html.ActionLink("Nuevo Movil ", "Create")
+        </div>
+        <div>
+            @Html.ActionLink("Lista Moviles", "List")
+        </div>
+    </div>
+
+    <div class="col-9">
+        <h4>Lista de moviles</h4>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TipoDocumento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NumDocumento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.TipoVehiculo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PlacaVehiculo)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoDocumento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumDocumento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoVehiculo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlacaVehiculo)
+            </td>
+
+            <td>
+                @*Iconos*@
+                <span>
+                    <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-success">
+                        <span class="fas fa-edit"></span>
+                    </a>
+                </span>
+                <span>
+                    <a href="@Url.Action("Details", new { id = item.Id })" class="btn btn-info">
+                        <span class="fas fa-info-circle"></span>
+                    </a>
+                </span>
+                <span>
+                    <a href="@Url.Action("Delete", new { id = item.Id })" class="btn btn-danger">
+                        <span class="far fa-trash-alt"></span>
+                    </a>
+                </span>
+
+                @*Botones tradicionales
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-success" })
+            @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-info" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })*@
+
+            </td>
+        </tr>
+            }
+        </table>
+    </div>
+
+</div>

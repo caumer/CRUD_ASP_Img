@@ -1,0 +1,99 @@
+﻿@model CRUD.Models.MovilData
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-sm-3">
+        <img src="~/Imagenes/logo.png" width="200" />
+        <div>
+            @Html.ActionLink("Inicio ", "Index")
+        </div>
+        <div>
+            @Html.ActionLink("Nuevo Movil ", "Create")
+        </div>
+        <div>
+            @Html.ActionLink("Lista Moviles", "List")
+        </div>
+    </div>
+
+    
+    <div class="col-sm-5">
+        <div>
+            <dl class="dl-horizontal">
+                <h3>¿Estás seguro que quiere eliminar esto?</h3>
+                <hr />
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Nombre)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.TipoDocumento)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TipoDocumento)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.NumDocumento)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NumDocumento)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.TipoVehiculo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.TipoVehiculo)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.PlacaVehiculo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PlacaVehiculo)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-danger" />
+
+                </div>
+            }
+
+        </div>
+    </div>
+    <div class="col-sm-4">
+        @if (Model.Files.Any(f => f.FileType == CRUD.Models.FileType.Avatar))
+        {
+            <dt>
+                
+                <br />
+            </dt>
+            <dd>
+                <img class="img-thumbnail" src="~/File?id=@Model.Files.First(f => f.FileType == CRUD.Models.FileType.Avatar).FileId" alt="avatar" />
+            </dd>
+        }
+    </div>
+</div>
+
+
+
+    
